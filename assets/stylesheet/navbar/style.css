@@ -1,0 +1,10 @@
+#navbar {
+  background-color: #0A263E;
+  font-size: 2rem;
+  color: #FDFFFC;
+}
+
+#navbar .navbar-nav a {
+  color: #FDFFFC !important;
+}
+/*# sourceMappingURL=style.css.map */

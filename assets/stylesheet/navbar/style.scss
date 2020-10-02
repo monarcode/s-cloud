@@ -1,0 +1,15 @@
+// @import "../vars";
+
+#navbar {
+    background-color: $dark-blue;
+    font-size: 1.6rem;
+    color: $light;
+
+    .navbar-nav {
+
+        a {
+            color: $light !important;
+        }
+    }
+
+}
