@@ -113,26 +113,52 @@ a {
   text-decoration: none;
 }
 
-#header .map {
-  position: absolute;
-  height: 100%;
-  right: -200px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+#header .outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+  #header .outer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
+#header .img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 400px;
+          flex: 1 0 400px;
+  height: auto;
+  overflow: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #header .wave {
-  display: block;
   position: absolute;
   left: 0;
   bottom: -5px;
-  max-width: 100%;
-  z-index: 99;
+  min-width: 100vw;
 }
 
 #about-us {
-  min-height: 90vh;
+  min-height: minmax(100vh 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #about-us .inner {
@@ -215,7 +241,7 @@ a {
 }
 
 #wwd {
-  min-height: 90vh;
+  min-height: minmax(100vh 100%);
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -243,6 +269,7 @@ a {
   color: #adadad;
   opacity: 0.1;
   top: 0;
+  left: 0;
   word-wrap: none;
 }
 
@@ -452,6 +479,140 @@ a {
   }
 }
 
+#contact-us {
+  min-height: calc(100% + 10vh);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#contact-us .header h2 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+#contact-us form .form-group .form-control {
+  padding: 2rem;
+  background-color: #F3F4F2;
+  border: none;
+}
+
+#contact-us form .ctas .btn {
+  color: #FDFFFC;
+  font-size: 1.7rem;
+  background-color: #EE2B47;
+  -webkit-box-shadow: 0px 5px 0px #BE0620;
+          box-shadow: 0px 5px 0px #BE0620;
+  border-radius: 5px;
+  padding: 1rem 1.8rem;
+}
+
+#contact-us form .ctas .cta-2 {
+  background-color: transparent;
+  color: #EE2B47;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 2px solid #EE2B47;
+}
+
+#footer {
+  min-height: 60vh;
+  background-color: #0A263E;
+  position: relative;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FDFFFC;
+}
+
+#footer .wave {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  min-width: 100vw;
+}
+
+@media screen and (max-width: 900px) {
+  #footer .wave {
+    top: 0;
+  }
+}
+
+#footer .logo {
+  width: 5rem;
+}
+
+#footer .services {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#footer .soc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#footer h3 {
+  color: #EE2B47;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#footer .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#footer .links .link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#footer .links a {
+  margin: 1.2rem 0;
+  color: #FDFFFC;
+  font-size: 1.5rem;
+  margin-right: 1.2rem;
+}
+
+@supports (gap: 1.2rem) {
+  #footer .links .link {
+    gap: 1.2rem;
+  }
+  #footer .links a {
+    margin-right: 0;
+  }
+}
+
 @media screen and (max-width: 500px) {
   html {
     font-size: 50%;
@@ -460,4 +621,4 @@ a {
     font-size: 1.7rem;
   }
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main.min.css.map */

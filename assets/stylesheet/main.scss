@@ -101,26 +101,35 @@ a {
         }
     }
 
-    .map {
-        position: absolute;
-        height: 100%;
-        right: -200px;
-        top: 50%;
-        transform: translateY(-50%);
+    .outer {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media screen and (max-width: 500px){
+            flex-direction: column-reverse;
+        }
+    }
+
+    .img {
+        flex: 1 0 400px;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        align-items: center;
     }
 
     .wave {
-        display: block;
         position: absolute;
         left: 0;
         bottom: -5px;
-        max-width: 100%;
-        z-index: 99;
+        min-width: 100vw;
     }
 }
 
 #about-us {
-    min-height: 90vh;
+    min-height: minmax(100vh 100%);
+    display: flex;
+    align-items: center;
 
     .inner {
         display: flex;
@@ -189,7 +198,7 @@ a {
 }
 
 #wwd {
-    min-height: 90vh;
+    min-height: minmax(100vh 100%);
     position: relative;
     display: flex;
 
@@ -209,6 +218,7 @@ a {
         color: rgb(173, 173, 173);
         opacity: 0.1;
         top: 0;
+        left: 0;
         word-wrap: none;
     }
 
@@ -352,7 +362,7 @@ a {
             color: $light;
         }
 
-        @media (max-width: 500px){
+        @media (max-width: 500px) {
             flex-direction: column;
             margin: 1rem;
 
@@ -364,6 +374,116 @@ a {
             .cta {
                 margin-top: 2rem;
                 margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+#contact-us {
+    min-height: calc(100% + 10vh);
+    display: flex;
+    align-items: center;
+
+    .header {
+        h2 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+    }
+
+    form {
+        .form-group {
+            .form-control {
+                padding: 2rem;
+                background-color: #F3F4F2;
+                border: none;
+            }
+
+        }
+
+        .ctas {
+            .btn {
+                color: $light;
+                font-size: 1.7rem;
+                background-color: $red;
+                box-shadow: 0px 5px 0px #BE0620;
+                border-radius: 5px;
+                padding: 1rem 1.8rem;
+            }
+
+            .cta-2{
+                background-color: transparent;
+                color: $red;
+                box-shadow: none;
+                border: 2px solid $red;
+            }
+        }
+
+    }
+}
+
+#footer {
+    min-height: 60vh;
+    background-color: $dark-blue;
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    color: $light;
+
+    .wave {
+        position: absolute;
+        top: -30px;
+        left: 0;
+        min-width: 100vw;
+
+        @media screen and(max-width:900px){
+            top: 0;
+        }
+    }
+
+    .logo {
+        width: 5rem;
+    }
+
+    .services {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .soc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    h3 {
+        color: $red;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        
+        .link {
+            display: flex;
+        }
+        a {
+            margin: 1.2rem 0;
+            color: $light;
+            font-size: 1.5rem;
+            margin-right: 1.2rem;
+        }
+
+        @supports (gap:1.2rem){
+            .link {
+                gap: 1.2rem;
+            }
+
+            a {
+                margin-right: 0;
             }
         }
     }
