@@ -11,6 +11,7 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  transition: all 0.2s linear;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  transition: all 0.2s linear;
 }
 
 a {
@@ -34,12 +36,21 @@ a {
   color: #0A263E;
 }
 
+.shadow {
+  box-shadow: 0px 5px 20px black;
+}
+
 #navbar {
   background-color: #0A263E;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #FDFFFC;
   padding: 1rem;
   flex-grow: 1;
+  z-index: 999;
+}
+
+#navbar .navbar-brand {
+  font-size: 1.5rem;
 }
 
 #navbar a {
@@ -48,6 +59,12 @@ a {
 
 #navbar a:nth-of-type(5) {
   margin-left: auto;
+}
+
+@media screen and (max-width: 500px) {
+  #navbar a:nth-of-type(5) {
+    margin-left: unset;
+  }
 }
 
 #navbar a:nth-of-type(6) {
@@ -61,6 +78,7 @@ a {
 #navbar .navbar-nav {
   flex-grow: 1;
   align-items: center;
+  padding-bottom: 2rem;
 }
 
 #navbar .navbar-nav a {
@@ -68,7 +86,7 @@ a {
 }
 
 #header {
-  min-height: 90vh;
+  min-height: 100vh;
   background-color: #0A263E;
   color: #FDFFFC;
   position: relative;
@@ -77,11 +95,14 @@ a {
 #header .outer {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 4rem;
 }
 
 @media screen and (max-width: 800px) {
   #header .outer {
     flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
@@ -90,11 +111,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
 }
 
 #header .inner h1 {
-  font-size: 5rem;
+  font-size: clamp(3rem, 4rem, 5rem) !important;
   font-weight: bold;
 }
 
@@ -110,17 +130,30 @@ a {
 }
 
 #header .img {
-  flex: 1 0 400px;
-  overflow: visible;
+  flex: 1 0 40rem;
+  max-height: 100%;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+  #header .img {
+    margin-top: 5rem;
+  }
 }
 
 #header .wave {
   position: absolute;
   left: 0;
   bottom: -5px;
-  min-width: 100vw;
+  width: 100%;
+  z-index: 5;
+}
+
+@media screen and (max-width: 500px) {
+  #header .wave {
+    bottom: -10px;
+  }
 }
 
 #about-us {
@@ -428,6 +461,7 @@ a {
   top: -10px;
   left: 0;
   min-width: 100vw;
+  z-index: 5;
 }
 
 @media screen and (max-width: 900px) {
