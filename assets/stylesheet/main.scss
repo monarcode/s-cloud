@@ -452,7 +452,7 @@ a {
     min-height: 60vh;
     background-color: $dark-blue;
     position: relative;
-    // margin-top: 20px;
+    margin-top: 20px;
     display: flex;
     align-items: flex-end;
     color: $light;
@@ -467,7 +467,7 @@ a {
 
     .wave {
         position: absolute;
-        top: -10px;
+        top: -20px;
         left: 0;
         min-width: 100vw;
         z-index: 5;

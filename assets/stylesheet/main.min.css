@@ -439,6 +439,7 @@ a {
   min-height: 60vh;
   background-color: #0A263E;
   position: relative;
+  margin-top: 20px;
   display: flex;
   align-items: flex-end;
   color: #FDFFFC;
@@ -458,7 +459,7 @@ a {
 
 #footer .wave {
   position: absolute;
-  top: -10px;
+  top: -20px;
   left: 0;
   min-width: 100vw;
   z-index: 5;
