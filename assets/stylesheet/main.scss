@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 @import "vars";
 
@@ -13,22 +14,29 @@
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    scroll-padding-top: 10vh;
     overflow-x: hidden;
     transition: all 0.2s linear;
 }
 
 body {
-    font-family: 'Josefin Sans', sans-serif;
+    // font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.7rem;
     background-color: $light;
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
     transition: all 0.2s linear;
+    position: relative;
 }
 
 a {
     text-decoration: none !important;
+}
+
+.main {
+    position: relative;
 }
 
 .text-red {
@@ -43,11 +51,15 @@ a {
     box-shadow: 0px 5px 20px rgb(0, 0, 0);
 }
 
+// .active {
+//     color: $red !important;
+// }
+
 #navbar {
     background-color: $dark-blue;
     font-size: 1.4rem;
     color: $light;
-    padding: 1rem;
+    padding: 1.2rem;
     flex-grow: 1;
     z-index: 999;
 
@@ -62,8 +74,27 @@ a {
     a:nth-of-type(5) {
         margin-left: auto;
 
-        @media screen and (max-width:500px){
+        @media screen and (max-width:500px) {
             margin-left: unset;
+        }
+    }
+
+    .navbar-nav {
+        flex-grow: 1;
+        align-items: center;
+
+        a {
+            color: $light;
+            transition: all 0.2s linear;
+            
+            &:hover {
+                color: $red;
+                transition: all 0.2s linear;
+            }
+
+            @media screen and (max-width:500px) {
+                margin: 3rem 0;
+            }
         }
     }
 
@@ -73,18 +104,18 @@ a {
         box-shadow: 0px 5px 0px #BE0620;
         border-radius: 5px;
         padding: 1rem 1.8rem;
-    }
+        transition: color 0.2s linear;
 
-    .navbar-nav {
-        flex-grow: 1;
-        align-items: center;
-        padding-bottom: 2rem;
-
-        a {
-            color: $light !important;
+        &:hover {
+            background-color: darken($color: $red, $amount: 5);
+            transition: all 0.2s linear;
+            color: $light;
         }
     }
 
+    a.active, .active {
+        color: $red;
+    }
 }
 
 #header {
@@ -117,14 +148,21 @@ a {
         }
 
         p {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: lighter;
         }
 
         a {
             color: $light;
             font-size: 2.2rem;
+            font-weight: bolder;
             text-decoration: none;
+            transition: color 0.2s linear;
+
+            &:hover {
+                color: $red;
+                transition: color 0.2s linear;
+            }
         }
     }
 
@@ -146,10 +184,31 @@ a {
         width: 100%;
         z-index: 5;
 
-        @media screen and (max-width:500px){
+        @media screen and (max-width:500px) {
             bottom: -10px;
         }
     }
+}
+
+#phone-palm {
+    animation: phone 1s ease-in-out infinite alternate;
+}
+
+#g432,
+#g480 {
+    path {
+        fill: rgb(20, 20, 20);
+    }
+}
+
+// right eye
+#g472 {
+    animation: right-eye 1s ease-in-out infinite alternate;
+}
+
+// right eyebrow
+#g468 {
+    animation: right-brow 1s ease-in-out infinite alternate;
 }
 
 #about-us {
@@ -162,7 +221,7 @@ a {
         flex-flow: row wrap;
 
         .left {
-            width: 50%;
+            // width: 50%;
             flex-grow: 1;
             flex-basis: 400px;
         }
@@ -269,6 +328,7 @@ a {
             border-radius: 5px;
             transition: 0.2s linear all;
             position: relative;
+            cursor: pointer;
             z-index: 5;
 
             h3 {
@@ -281,7 +341,9 @@ a {
                 transition: all 0.1s ease-in-out;
             }
 
-            &:hover {
+            &:hover,
+            &:active,
+            &:focus {
                 background-color: #0197F6;
                 color: $light;
                 transform: translateY(-10px);
@@ -386,6 +448,12 @@ a {
             border-radius: 5px;
             padding: 1rem 2rem;
             color: $light;
+            transition: color 0.2s linear;
+
+            &:hover {
+                background-color: darken($color: $red, $amount: 5);
+                transition: color 0.2s linear;
+            }
         }
 
         @media (max-width: 500px) {
@@ -512,6 +580,11 @@ a {
             color: $light;
             font-size: 1.5rem;
             margin-right: 1.2rem;
+
+            &:hover {
+                color: $red;
+                transition: color 0.2s linear;
+            }
         }
 
         @supports (gap:1.2rem) {
@@ -522,6 +595,16 @@ a {
             a {
                 margin-right: 0;
             }
+        }
+
+        .tw:hover {
+            color: $light-blue;
+        }
+        .fb:hover {
+            color: rgb(0, 39, 212);
+        }
+        .in:hover {
+            color: orange;
         }
     }
 }
@@ -535,5 +618,89 @@ a {
 
     body {
         font-size: 1.7rem;
+    }
+}
+
+@keyframes phone {
+    0% {
+        transform: rotateZ(0deg);
+        transform-box: fill-box;
+        transform-origin: bottom;
+    }
+
+    50% {
+        transform: rotateZ(5deg);
+        transform-box: fill-box;
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+        transform-box: fill-box;
+        transform-origin: bottom;
+    }
+}
+
+@keyframes right-eye {
+    0% {
+        transform: rotateX(0deg);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    25% {
+        transform: rotateX(0deg);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    50% {
+        transform: rotateX(80deg);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    75% {
+        transform: rotateX(0deg);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+}
+
+@keyframes right-brow {
+    0% {
+        transform: rotateZ(0deg);
+        transform-box: fill-box;
+        transform-origin: right;
+    }
+
+    25% {
+        transform: rotateZ(0deg);
+        transform-box: fill-box;
+        transform-origin: right;
+    }
+
+    50% {
+        transform: rotateZ(-5deg);
+        transform-box: fill-box;
+        transform-origin: right;
+    }
+
+    75% {
+        transform: rotateZ(0deg);
+        transform-box: fill-box;
+        transform-origin: right;
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+        transform-box: fill-box;
+        transform-origin: right;
     }
 }
