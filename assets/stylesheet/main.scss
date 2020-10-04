@@ -24,7 +24,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7rem;
     background-color: $light;
-    min-height: 100vh;
+    height: 100%;
     width: 100%;
     overflow-x: hidden;
     transition: all 0.2s linear;
@@ -50,10 +50,6 @@ a {
 .shadow {
     box-shadow: 0px 5px 20px rgb(0, 0, 0);
 }
-
-// .active {
-//     color: $red !important;
-// }
 
 #navbar {
     background-color: $dark-blue;
@@ -86,7 +82,7 @@ a {
         a {
             color: $light;
             transition: all 0.2s linear;
-            
+
             &:hover {
                 color: $red;
                 transition: all 0.2s linear;
@@ -113,7 +109,8 @@ a {
         }
     }
 
-    a.active, .active {
+    a.active,
+    .active {
         color: $red;
     }
 }
@@ -185,13 +182,16 @@ a {
         z-index: 5;
 
         @media screen and (max-width:500px) {
-            bottom: -10px;
+            // bottom: -10px;
+            display: none;
         }
     }
 }
 
 #phone-palm {
     animation: phone 1s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: bottom;
 }
 
 #g432,
@@ -204,11 +204,15 @@ a {
 // right eye
 #g472 {
     animation: right-eye 1s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
 // right eyebrow
 #g468 {
     animation: right-brow 1s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: right;
 }
 
 #about-us {
@@ -540,6 +544,10 @@ a {
         min-width: 100vw;
         z-index: 5;
 
+        @media screen and (max-width:500px) {
+            display: none;
+        }
+
         @media screen and(max-width:900px) {
             top: 0;
         }
@@ -600,9 +608,11 @@ a {
         .tw:hover {
             color: $light-blue;
         }
+
         .fb:hover {
             color: rgb(0, 39, 212);
         }
+
         .in:hover {
             color: orange;
         }
@@ -621,86 +631,60 @@ a {
     }
 }
 
-@keyframes phon {
+@keyframes phone {
     0% {
         transform: rotateZ(0deg);
-        transform-box: fill-box;
-        transform-origin: bottom;
     }
 
     50% {
         transform: rotateZ(5deg);
-        transform-box: fill-box;
-        transform-origin: bottom;
     }
 
     100% {
         transform: rotateZ(0deg);
-        transform-box: fill-box;
-        transform-origin: bottom;
     }
 }
 
-@keyframes right-ey {
+@keyframes right-eye {
     0% {
         transform: rotateX(0deg);
-        transform-box: fill-box;
-        transform-origin: center;
     }
 
     25% {
         transform: rotateX(0deg);
-        transform-box: fill-box;
-        transform-origin: center;
     }
 
     50% {
         transform: rotateX(80deg);
-        transform-box: fill-box;
-        transform-origin: center;
     }
 
     75% {
         transform: rotateX(0deg);
-        transform-box: fill-box;
-        transform-origin: center;
     }
 
     100% {
         transform: rotateX(0deg);
-        transform-box: fill-box;
-        transform-origin: center;
     }
 }
 
-@keyframes right-bro {
+@keyframes right-brow {
     0% {
         transform: rotateZ(0deg);
-        transform-box: fill-box;
-        transform-origin: right;
     }
 
     25% {
         transform: rotateZ(0deg);
-        transform-box: fill-box;
-        transform-origin: right;
     }
 
     50% {
         transform: rotateZ(-5deg);
-        transform-box: fill-box;
-        transform-origin: right;
     }
 
     75% {
         transform: rotateZ(0deg);
-        transform-box: fill-box;
-        transform-origin: right;
     }
 
     100% {
         transform: rotateZ(0deg);
-        transform-box: fill-box;
-        transform-origin: right;
     }
 }
